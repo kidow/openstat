@@ -3,7 +3,7 @@ import { chartRegistry } from '@/lib/charts/registry';
 
 export function ChartGrid() {
   return (
-    <section className="grid gap-4 p-4 sm:grid-cols-2 xl:grid-cols-3">
+    <section className="grid sm:grid-cols-2 xl:grid-cols-3">
       {chartRegistry.map((chart) => (
         <ChartCard
           key={chart.id}

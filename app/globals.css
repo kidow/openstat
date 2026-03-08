@@ -1,16 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 body {
   min-height: 100vh;
   background-color: rgb(255 255 255);
   color: rgb(24 24 27);
-}
-
-.dark body {
-  background-color: rgb(9 9 11);
-  color: rgb(244 244 245);
 }
