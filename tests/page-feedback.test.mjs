@@ -36,6 +36,28 @@ test('chart cards remove rounded corners on the home page', () => {
   );
 });
 
+test('chart cards render a basic area chart instead of a gray placeholder', () => {
+  const source = readFileSync(
+    new URL('../components/charts/chart-card.tsx', import.meta.url),
+    'utf8',
+  );
+
+  assert.ok(
+    source.includes('AreaChart'),
+    'Expected chart card to render an AreaChart.',
+  );
+
+  assert.ok(
+    source.includes('ResponsiveContainer'),
+    'Expected chart card to size the chart responsively.',
+  );
+
+  assert.ok(
+    !source.includes('h-40 rounded-md bg-zinc-100'),
+    'Expected the gray placeholder block to be removed.',
+  );
+});
+
 test('dark mode is disabled for the current UI', () => {
   const cardSource = readFileSync(
     new URL('../components/charts/chart-card.tsx', import.meta.url),
