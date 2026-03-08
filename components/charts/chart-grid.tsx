@@ -1,9 +1,9 @@
-import { ChartCard } from '@/components/charts/chart-card';
-import { chartRegistry } from '@/lib/charts/registry';
+import { ChartCard } from "@/components/charts/chart-card";
+import { chartRegistry } from "@/lib/charts/registry";
 
 export function ChartGrid() {
   return (
-    <section className="grid sm:grid-cols-2 xl:grid-cols-3">
+    <section className="grid gap-px sm:grid-cols-2 xl:grid-cols-3">
       {chartRegistry.map((chart) => (
         <ChartCard
           key={chart.id}

@@ -29,6 +29,11 @@ test('chart cards remove rounded corners on the home page', () => {
     !source.includes('rounded-lg'),
     'Expected chart cards to remove rounded-lg from the outer card.',
   );
+
+  assert.ok(
+    !source.includes('className="border'),
+    'Expected chart cards to stop drawing overlapping borders individually.',
+  );
 });
 
 test('dark mode is disabled for the current UI', () => {
@@ -54,5 +59,22 @@ test('dark mode is disabled for the current UI', () => {
   assert.ok(
     !globalSource.includes('.dark body'),
     'Expected global styles to stop applying dark body overrides.',
+  );
+});
+
+test('chart grid keeps a single shared border system between cards', () => {
+  const source = readFileSync(
+    new URL('../components/charts/chart-grid.tsx', import.meta.url),
+    'utf8',
+  );
+
+  assert.ok(
+    source.includes('gap-px'),
+    'Expected chart grid to use a single-pixel shared separator between cards.',
+  );
+
+  assert.ok(
+    source.includes('border'),
+    'Expected chart grid to keep an outer border around the card collection.',
   );
 });
