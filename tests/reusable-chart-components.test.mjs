@@ -25,3 +25,15 @@ test('reusable chart component files exist with their expected exports', () => {
     }
   }
 });
+
+test('chart container removes outlines from recharts surfaces', () => {
+  const source = readFileSync(
+    new URL('../components/ui/chart.tsx', import.meta.url),
+    'utf8',
+  );
+
+  assert.ok(
+    source.includes('[&_.recharts-surface]:outline-none'),
+    'Expected chart container to remove outlines from svg.recharts-surface.',
+  );
+});

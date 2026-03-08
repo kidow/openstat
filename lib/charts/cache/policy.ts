@@ -1,4 +1,4 @@
-import type { ChartDefinition } from '@/lib/types/chart';
+import type { ChartDefinition } from "../../types/chart";
 
 export function buildChartFetchOptions(chart: ChartDefinition) {
   return {

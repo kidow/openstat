@@ -143,7 +143,7 @@ export function ChartContainer({
     <ChartContext.Provider value={{ config }}>
       <div
         className={cn(
-          "h-full w-full text-xs [&_.recharts-cartesian-axis-tick_text]:fill-zinc-500 [&_.recharts-cartesian-grid_line]:stroke-zinc-200 [&_.recharts-layer]:outline-none [&_.recharts-polar-grid-concentric-circle]:stroke-zinc-200 [&_.recharts-polar-grid-angle-line]:stroke-zinc-200",
+          "h-full w-full text-xs [&_.recharts-cartesian-axis-tick_text]:fill-zinc-500 [&_.recharts-cartesian-grid_line]:stroke-zinc-200 [&_.recharts-layer]:outline-none [&_.recharts-polar-grid-concentric-circle]:stroke-zinc-200 [&_.recharts-polar-grid-angle-line]:stroke-zinc-200 [&_.recharts-surface]:outline-none",
           className,
         )}
         data-chart={chartId}

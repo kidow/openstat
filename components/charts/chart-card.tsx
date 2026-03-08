@@ -1,4 +1,6 @@
 import { ChartPreview } from "@/components/charts/chart-preview";
+import { KosisPopulationBarChart } from "@/components/charts/kosis-population-bar-chart";
+import { KOSIS_POPULATION_BAR_CHART_ID } from "@/lib/charts/kosis-population";
 
 interface ChartCardProps {
   id: string;
@@ -12,7 +14,11 @@ export function ChartCard({ id, title, description }: ChartCardProps) {
       <h2 className="text-sm font-semibold">{title}</h2>
       <p className="mt-2 text-sm text-zinc-600">{description}</p>
       <div className="mt-4">
-        <ChartPreview chartId={id} />
+        {id === KOSIS_POPULATION_BAR_CHART_ID ? (
+          <KosisPopulationBarChart />
+        ) : (
+          <ChartPreview chartId={id} />
+        )}
       </div>
     </article>
   );

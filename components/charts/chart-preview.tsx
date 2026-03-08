@@ -40,7 +40,7 @@ const areaConfig = {
 } satisfies ChartConfig;
 
 const barConfig = {
-  value: { label: "Volume", color: "#0f766e" },
+  value: { label: "Total Population", color: "#0f766e" },
 } satisfies ChartConfig;
 
 const lineConfig = {
