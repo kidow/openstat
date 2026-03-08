@@ -36,20 +36,20 @@ test('chart cards remove rounded corners on the home page', () => {
   );
 });
 
-test('chart cards render a basic area chart instead of a gray placeholder', () => {
+test('chart cards delegate chart rendering to a reusable preview component', () => {
   const source = readFileSync(
     new URL('../components/charts/chart-card.tsx', import.meta.url),
     'utf8',
   );
 
   assert.ok(
-    source.includes('AreaChart'),
-    'Expected chart card to render an AreaChart.',
+    source.includes('ChartPreview'),
+    'Expected chart card to delegate rendering to a chart preview component.',
   );
 
   assert.ok(
-    source.includes('ResponsiveContainer'),
-    'Expected chart card to size the chart responsively.',
+    !source.includes('ResponsiveContainer'),
+    'Expected chart card to stop inlining chart implementation details.',
   );
 
   assert.ok(

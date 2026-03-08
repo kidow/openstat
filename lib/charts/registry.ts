@@ -22,4 +22,25 @@ export const chartRegistry: ChartDefinition[] = [
     dataTag: 'gov-market-daily',
     revalidateSeconds: 60 * 10,
   },
+  {
+    id: 'pie-share',
+    title: '카테고리 비중 (Pie)',
+    description: '도메인별 비중을 원형 차트로 비교합니다.',
+    dataTag: 'gov-category-monthly',
+    revalidateSeconds: 60 * 60 * 24,
+  },
+  {
+    id: 'radar-score',
+    title: '지표 밸런스 (Radar)',
+    description: '핵심 품질 지표를 레이더 차트로 비교합니다.',
+    dataTag: 'gov-quality-weekly',
+    revalidateSeconds: 60 * 60,
+  },
+  {
+    id: 'radial-progress',
+    title: '수집 진행도 (Radial)',
+    description: '데이터 적재 진행률을 방사형 차트로 표시합니다.',
+    dataTag: 'gov-pipeline-hourly',
+    revalidateSeconds: 60 * 15,
+  },
 ];
