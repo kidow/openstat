@@ -37,3 +37,22 @@ test('chart container removes outlines from recharts surfaces', () => {
     'Expected chart container to remove outlines from svg.recharts-surface.',
   );
 });
+
+test('chart wrappers guard ResponsiveContainer against zero-size measurement', () => {
+  for (const file of [
+    '../components/ui/area-chart.tsx',
+    '../components/ui/bar-chart.tsx',
+    '../components/ui/line-chart.tsx',
+    '../components/ui/pie-chart.tsx',
+    '../components/ui/radar-chart.tsx',
+    '../components/ui/radial-chart.tsx',
+  ]) {
+    const source = readFileSync(new URL(file, import.meta.url), 'utf8');
+
+    assert.match(
+      source,
+      /<ResponsiveContainer[^>]*minHeight=\{height\}[^>]*minWidth=\{0\}[^>]*width="100%"[^>]*height="100%"/s,
+      `Expected ${file} to set minHeight={height} and minWidth={0} on ResponsiveContainer.`,
+    );
+  }
+});

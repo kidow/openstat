@@ -13,17 +13,23 @@ interface PopulationBarChartClientProps {
 }
 
 export function PopulationBarChartClient({ data }: PopulationBarChartClientProps) {
+  const minChartWidth = Math.max(data.length * 36, 720);
+
   return (
-    <BarChart
-      config={barConfig}
-      data={data}
-      height={180}
-      series={[{ dataKey: "value" }]}
-      showYAxis
-      valueFormatter={(value) =>
-        typeof value === "number" ? value.toLocaleString("ko-KR") : String(value ?? "")
-      }
-      xKey="label"
-    />
+    <div className="overflow-x-auto pb-2">
+      <BarChart
+        className="min-w-0"
+        config={barConfig}
+        data={data}
+        height={180}
+        series={[{ dataKey: "value" }]}
+        showYAxis
+        style={{ minWidth: minChartWidth }}
+        valueFormatter={(value) =>
+          typeof value === "number" ? value.toLocaleString("ko-KR") : String(value ?? "")
+        }
+        xKey="label"
+      />
+    </div>
   );
 }

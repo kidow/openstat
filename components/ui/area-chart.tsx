@@ -35,7 +35,7 @@ export function AreaChart<TData extends Record<string, string | number>>({
   return (
     <ChartContainer className={cn("w-full", className)} config={config} {...props}>
       <div style={{ height }}>
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer minHeight={height} minWidth={0} width="100%" height="100%">
           <RechartsAreaChart data={data} margin={{ left: 12, right: 12, top: 8, bottom: 0 }}>
             {showGrid ? <CartesianGrid vertical={false} /> : null}
             <XAxis

@@ -46,7 +46,7 @@ export function RadialChart<TData extends Record<string, string | number>>({
   return (
     <ChartContainer className={cn("w-full", className)} config={config} {...props}>
       <div style={{ height }}>
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer minHeight={height} minWidth={0} width="100%" height="100%">
           <RechartsRadialBarChart
             data={data}
             endAngle={endAngle}
